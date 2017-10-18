@@ -19,7 +19,6 @@ namespace 俄罗斯方块
     }
     class CubeInfo
     {
-        
         public static Cube cube11;
         public static Cube cube12;
 
@@ -29,17 +28,17 @@ namespace 俄罗斯方块
                 new int[4, 4]
                 {
                     {0,0,0,0},
+                    {1,2,1,1},
                     {0,0,0,0},
-                    {1,1,2,1},
                     {0,0,0,0},
                 }, cube12);
             cube12 = new Cube(
                 new int[4, 4]
                 {
-                    {0,0,1,0},
-                    {0,0,1,0},
-                    {0,0,2,0},
-                    {0,0,1,0},
+                    {0,1,0,0},
+                    {0,2,0,0},
+                    {0,1,0,0},
+                    {0,1,0,0},
                 }, cube11);
         }
     }

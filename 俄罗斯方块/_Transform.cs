@@ -2,9 +2,9 @@
 {
     public class _Transform
     {
-        public static void CanTransformMove()
+        public static bool CanTransform()
         {
-
+            return false;
         }
 
         public static void Transform()

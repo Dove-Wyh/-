@@ -5,3 +5,9 @@ D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\obj\Debug\俄罗斯方块.csproj.
 D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\obj\Debug\俄罗斯方块.exe
 D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\obj\Debug\俄罗斯方块.pdb
 D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\obj\Debug\俄罗斯方块.csprojResolveAssemblyReference.cache
+D:\VSWorkSpace\Tetris\俄罗斯方块\bin\Debug\俄罗斯方块.exe.config
+D:\VSWorkSpace\Tetris\俄罗斯方块\bin\Debug\俄罗斯方块.exe
+D:\VSWorkSpace\Tetris\俄罗斯方块\bin\Debug\俄罗斯方块.pdb
+D:\VSWorkSpace\Tetris\俄罗斯方块\obj\Debug\俄罗斯方块.csprojResolveAssemblyReference.cache
+D:\VSWorkSpace\Tetris\俄罗斯方块\obj\Debug\俄罗斯方块.exe
+D:\VSWorkSpace\Tetris\俄罗斯方块\obj\Debug\俄罗斯方块.pdb

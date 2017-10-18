@@ -4,15 +4,16 @@ namespace 俄罗斯方块
 {
     public class Draw
     {
-        static Random r = new Random((int) DateTime.Now.Ticks);
-        static int[,] title = new int[4,4];
+        public static Draw instance;
+        public Draw()
+        {
+            instance = this;
+        }
+        Random r = new Random((int) DateTime.Now.Ticks);
+        
         //输出第一行或者最后一行
         void Print1()
         {
-            //for (int i = 0; i < 46; i++)
-            //{
-            //    Console.Write(" ");
-            //}
             for (int i = 0; i < 12; i++)
             {
                 Console.Write('■');
@@ -23,39 +24,29 @@ namespace 俄罗斯方块
         //输出Rect中间行
         void Print2(int[,] table)
         {
-            for (int j = 19; j >= 0; j--)
+            for (int i = 2; i < 20; i++)
             {
-                //for (int i = 0; i < 46; i++)
-                //{
-                //    Console.Write(" ");
-                //}
                 Console.Write('■');
 
-                for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 10; j++)
                 {
-                    if (table[j, i] != 0)
-                    {
-                        Console.Write("■");
-                    }
-                    else
+                    if (table[i, j] == 0)
                     {
                         Console.Write("  ");
                     }
+                    else
+                    {
+                        Console.Write("■");
+                    }
                 }
-
                 Console.WriteLine('■');
             }
         }
 
         //预览下一个方块
-        public static void PrintTitle()
+        public void PrintTitle(int index)
         {
-            int index = 0;
-            //随机产出下一个方块
-            if (!Game.instance.canDown)
-            {
-                index = r.Next(0, 20);
-            }
+            Console.WriteLine();
             switch (index)
             {
                 case 0:
@@ -69,17 +60,36 @@ namespace 俄罗斯方块
         }
 
         //画矩形
-        public static void PrintRect()
+        public void PrintRect()
         {
             Print1();
-            Print2(table);
+            Print2(Game.instance.table);
             Print1();
         }
 
         //画标题
-        static void DrawTitle(int[,] title)
+        void DrawTitle(int[,] title)
         {
             
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Console.Write("  ");
+                }
+                for (int j = 0; j < 4; j++)
+                {
+                    if (title[i,j] == 0)
+                    {
+                        Console.Write("  ");
+                    }
+                    else
+                    {
+                        Console.Write("■");
+                    }
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

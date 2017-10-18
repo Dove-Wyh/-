@@ -45,6 +45,7 @@
     <Compile Include="CubeInfo.cs" />
     <Compile Include="Draw.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="_Down.cs" />
     <Compile Include="_Left.cs" />
     <Compile Include="Main.cs" />

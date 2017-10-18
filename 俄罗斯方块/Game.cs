@@ -11,133 +11,74 @@ namespace 俄罗斯方块
     {
         public static Game instance;
         Random r;
-        public bool canDown = true;           //是否可以下落，也代表是否落到底了
-        bool canTransform = true;
-        bool canLeftMove = true;
-        bool canRightMove = true;
-        public static int[,] table;
-        int cube = -1;
+        public bool GameIsOver = false;
+        bool canDown = true;
+        bool first = true;
+        int title;
+        int cube;
         
-        public void CreateCube()
-        {
-            if (cube == -1)
-            {
-                //随机创建一个cube
-                cube = r.Next(0, 8);
-                switch (cube)
-                {
-                    case 0:
-                        CubeInfo.Cube11();
-                        break;
-                    case 1:
-                        CubeInfo.Cube22();
-                        break;
-                    case 2:
-                        CubeInfo.Cube33();
-                        break;
-                    case 3:
-                        CubeInfo.Cube44();
-                        break;
-                    case 4:
-                        CubeInfo.Cube55();
-                        break;
-                    case 5:
-                        CubeInfo.Cube66();
-                        break;
-                    case 6:
-                        CubeInfo.Cube77();
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                switch (cube)
-                {
-                    case 0:
-                        CubeInfo.Cube11();
-                        break;
-                    case 1:
-                        CubeInfo.Cube22();
-                        break;
-                    case 2:
-                        CubeInfo.Cube33();
-                        break;
-                    case 3:
-                        CubeInfo.Cube44();
-                        break;
-                    case 4:
-                        CubeInfo.Cube55();
-                        break;
-                    case 5:
-                        CubeInfo.Cube66();
-                        break;
-                    case 6:
-                        CubeInfo.Cube77();
-                        break;
-                    default:
-                        break;
-
-                }
-            }
-            canDown = true;
-        }
+        public int[,] table;
 
         public void RealGame()
         {
             Console.Clear();
-            Draw.PrintTitle();
-            //创建cube
+
             if (!canDown)
             {
-                CreateCube();
-                PrintTitle();
-
-                PrintRect();
+                Model.instance.Change();
+                cube = title;
+                title = r.Next(0, 2);
+            }
+            if (!canDown || first)
+            {
+                Model.instance.CreateCube(cube);
+                canDown = true;
+                first = false;
             }
             //判断上一个方块是否落地
-            while (canDown)
+            while (canDown && !GameIsOver)
             {
-
+                Console.Clear();
                 _Down.Down();
-                CanTransform();
-                CanLeftMove();
-                CanRightMove();
-                if (canDown)
+                ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+                switch (consoleKeyInfo.Key)
                 {
-                    Down();
+                    case ConsoleKey.LeftArrow:
+                        if (_Left.CanLeftMove())
+                        {
+                            _Left.LeftMove();
+                        }
+                        break;
+                    case ConsoleKey.RightArrow:
+                        if (_Right.CanRightMove())
+                        {
+                            _Right.RightMove();
+                        }
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (_Transform.CanTransform())
+                        {
+                            _Transform.Transform();
+                        }
+                        break;
                 }
-                PrintTitle();
-
-                PrintRect();
-                Thread.Sleep(300);
-            }
-            //把1换成2，表示已经落到底了
-            if (!canDown)
-            {
-                Change();
+                Draw.instance.PrintTitle(title);
+                Draw.instance.PrintRect();
+                
+                Thread.Sleep(1000);              //下降放在延时之前是为了让方块到达最后一行时候还能移动一下
+                
+                canDown = _Down.CanDown();
             }
         }
         
-        private void Change()
-        {
-            for (int i = 0; i < table.GetLength(0); i++)
-            {
-                for (int j = 0; j < table.GetLength(1); j++)
-                {
-                    if (table[i, j] == 1)
-                    {
-                        table[i, j] = 2;
-                    }
-                }
-            }
-        }
+        
 
         public Game()
         {
             instance = this;
             r = new Random((int)DateTime.Now.Ticks);
+            title = r.Next(0, 2);
+            cube = r.Next(0, 2);
             table = new int[20, 10];
         }
     }

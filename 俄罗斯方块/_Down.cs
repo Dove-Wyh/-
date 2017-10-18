@@ -2,57 +2,62 @@
 {
     public class _Down
     {
-        public static void CanDown()
+        public static bool CanDown()
         {
-            for (int i = 0; i < table.GetLength(1); i++)
+            bool canDown = true;
+            for (int i = 0; i < 10; i++)
             {
-                for (int j = 0; j < table.GetLength(0); j++)
+                for (int j = 19; j >= 0; j--)
                 {
-                    if (table[j, i] == 0 || table[j, i] == 2)
+                    if (Game.instance.table[j, i] == 0)
                     {
                         continue;
                     }
-                    else if (table[j, i] == 1)
+                    else if (Game.instance.table[j, i] == 1 || Game.instance.table[j, i] == 2)
                     {
-                        if (j == 0)
+                        if (j == 19)
                         {
                             canDown = false;
-                            return;
+                            return canDown;
                         }
-                        if (table[j - 1, i] == 0)
+                        if (Game.instance.table[j + 1, i] == 0)
                         {
                             break;
                         }
-                        else if (table[j - 1, i] == 1)
+                        else if (Game.instance.table[j + 1, i] == 9)
                         {
                             canDown = false;
+                            return canDown;
                         }
                     }
                 }
             }
+            return canDown;
         }
 
         public static void Down()
         {
             int num = 0;
-            for (int i = 1; i < table.GetLength(0); i++)
+            for (int i = 19; i >= 0; i--)
             {
-                for (int j = 0; j < table.GetLength(1); j++)
+                for (int j = 0; j < 10; j++)
                 {
-                    if (table[i, j] == 1)
+                    if (Game.instance.table[i, j] == 1)
                     {
-                        table[i, j] = 0;
-                        table[i - 1, j] = 1;
                         num++;
-                        if (num == 4)
-                        {
-                            break;
-                        }
+                        Game.instance.table[i, j] = 0;
+                        Game.instance.table[i + 1, j] = 1;
                     }
-                }
-                if (num == 4)
-                {
-                    break;
+                    if (Game.instance.table[i, j] == 2)
+                    {
+                        num++;
+                        Game.instance.table[i, j] = 0;
+                        Game.instance.table[i + 1, j] = 2;
+                    }
+                    if (num == 4)
+                    {
+                        return;
+                    }
                 }
             }
         }

@@ -2,9 +2,9 @@
 {
     public class _Right
     {
-        public static void CanRightMove()
+        public static bool CanRightMove()
         {
-
+            return false;
         }
 
         public static void RightMove()

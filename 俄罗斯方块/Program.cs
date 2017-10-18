@@ -11,48 +11,57 @@ namespace 俄罗斯方块
     {
         static void Main(string[] args)
         {
+            new Model();
+            new Draw();
+            new CubeInfo();
+            Game game = new Game();
             Main p = new Main();
             p.Start();
 
-            while (true)
+            while (!Game.instance.GameIsOver)
             {
-                Game game = new Game();
-                while (true)
+                //Game game = new Game();
+                
+                //while (!Game.instance.GameIsOver)
+                //{
+                //    game.RealGame();
+                //}
+                ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+                if (consoleKeyInfo.Key == ConsoleKey.DownArrow || consoleKeyInfo.Key == ConsoleKey.UpArrow)
                 {
-                    game.RealGame();
+                    Console.Clear();
+                    if (p.isStart)
+                    {
+                        p.Exit();
+                    }
+                    else
+                    {
+                        p.Start();
+                    }
                 }
-                //ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
-                //if (consoleKeyInfo.Key == ConsoleKey.DownArrow || consoleKeyInfo.Key == ConsoleKey.UpArrow)
-                //{
-                //    Console.Clear();
-                //    if (p.isStart)
-                //    {
-                //        p.Exit();
-                //    }
-                //    else
-                //    {
-                //        p.Start();
-                //    }
-                //}
-                //if (consoleKeyInfo.Key == ConsoleKey.Enter)
-                //{
-                //    if (p.isStart)
-                //    {
-                //        // 游戏逻辑
-                //        Console.Clear();
-                //        Game game = new Game();
-                //        while (true)
-                //        {
-                //            game.RealGame();
-                //        }
-                //    }
-                //    else
-                //    {
-                //        break;
-                //    }
-                //}
+                if (consoleKeyInfo.Key == ConsoleKey.Enter)
+                {
+                    if (p.isStart)
+                    {
+                        // 游戏逻辑
+                        Console.Clear();
+                        
+                        while (!Game.instance.GameIsOver)
+                        {
+                            game.RealGame();
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
-            //Console.ReadKey();
+            if (Game.instance.GameIsOver)
+            {
+                Console.WriteLine("Game Over");
+                Console.ReadKey();
+            }
         }
     }
 }
