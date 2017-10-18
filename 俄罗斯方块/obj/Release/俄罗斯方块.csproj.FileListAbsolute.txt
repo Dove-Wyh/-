@@ -1,0 +1,6 @@
+D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\bin\Release\俄罗斯方块.exe.config
+D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\bin\Release\俄罗斯方块.exe
+D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\bin\Release\俄罗斯方块.pdb
+D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\obj\Release\俄罗斯方块.csproj.CoreCompileInputs.cache
+D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\obj\Release\俄罗斯方块.exe
+D:\VSWorkSpace\俄罗斯方块\俄罗斯方块\obj\Release\俄罗斯方块.pdb
