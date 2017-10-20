@@ -11,3 +11,4 @@ D:\VSWorkSpace\Tetris\俄罗斯方块\bin\Debug\俄罗斯方块.pdb
 D:\VSWorkSpace\Tetris\俄罗斯方块\obj\Debug\俄罗斯方块.csprojResolveAssemblyReference.cache
 D:\VSWorkSpace\Tetris\俄罗斯方块\obj\Debug\俄罗斯方块.exe
 D:\VSWorkSpace\Tetris\俄罗斯方块\obj\Debug\俄罗斯方块.pdb
+D:\VSWorkSpace\Tetris\俄罗斯方块\obj\Debug\俄罗斯方块.csproj.CoreCompileInputs.cache

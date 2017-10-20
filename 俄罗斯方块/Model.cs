@@ -15,17 +15,9 @@ namespace 俄罗斯方块
             instance = this;
         }
 
-        public void CreateCube(int index)
+        public void CreateCube(Cube cube)
         {
-            switch (index)
-            {
-                case 0:
-                    assignment(CubeInfo.cube11.cube);
-                    break;
-                case 1:
-                    assignment(CubeInfo.cube12.cube);
-                    break;
-            }
+            assignment(cube.cube);
         }
 
         public void Change()
@@ -42,20 +34,22 @@ namespace 俄罗斯方块
             }
         }
 
-        void assignment(int[,] cube)
+        void assignment(int[,] cube)                    //创建出新的cube之后，为矩阵赋值
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 5; j++)
                 {
-                    if (Game.instance.table[i, j + 3] * cube[i, j] != 0)
+                    if (Game.instance.table[i, j + 2] * cube[i, j] != 0)
                     {
                         Game.instance.GameIsOver = true;
                         return;
                     }
-                    Game.instance.table[i, j + 3] = cube[i, j];
+                    Game.instance.table[i, j + 2] = cube[i, j];
                 }
             }
         }
+
+
     }
 }

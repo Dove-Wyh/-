@@ -11,9 +11,10 @@ namespace 俄罗斯方块
     {
         static void Main(string[] args)
         {
+            new CubeInfo();
+            new _Transform();
             new Model();
             new Draw();
-            new CubeInfo();
             Game game = new Game();
             Main p = new Main();
             p.Start();

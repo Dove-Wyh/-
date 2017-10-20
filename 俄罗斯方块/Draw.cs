@@ -34,9 +34,14 @@ namespace 俄罗斯方块
                     {
                         Console.Write("  ");
                     }
+                    else if(table[i, j] == 9)
+                    {
+                        Console.Write("□");
+                    }
                     else
                     {
                         Console.Write("■");
+                        //Console.Write(table[i, j] + " ");
                     }
                 }
                 Console.WriteLine('■');
@@ -44,18 +49,10 @@ namespace 俄罗斯方块
         }
 
         //预览下一个方块
-        public void PrintTitle(int index)
+        public void PrintTitle(Cube titleCube)
         {
             Console.WriteLine();
-            switch (index)
-            {
-                case 0:
-                    DrawTitle(CubeInfo.cube11.cube);
-                    break;
-                case 1:
-                    DrawTitle(CubeInfo.cube12.cube);
-                    break;
-            }
+            DrawTitle(titleCube.cube);
             Console.WriteLine("");
         }
 
@@ -71,13 +68,13 @@ namespace 俄罗斯方块
         void DrawTitle(int[,] title)
         {
             
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
                     Console.Write("  ");
                 }
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 5; j++)
                 {
                     if (title[i,j] == 0)
                     {

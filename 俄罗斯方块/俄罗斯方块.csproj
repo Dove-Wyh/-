@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CubeInfo.cs" />
     <Compile Include="Draw.cs" />
+    <Compile Include="_Eliminate.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="_Down.cs" />
